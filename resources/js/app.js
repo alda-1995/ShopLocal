@@ -1,12 +1,12 @@
 import {
-    Sidenav,
-    Dropdown,
-    Ripple,
-    Input,
-    initTE,
-    Datatable,
-  } from "tw-elements";
-  initTE({ Sidenav, Dropdown, Ripple, Input, Datatable });
+  Sidenav,
+  Dropdown,
+  Ripple,
+  Input,
+  initTE,
+  Datatable,
+} from "tw-elements";
+initTE({ Sidenav, Dropdown, Ripple, Input, Datatable });
   import axios from "axios";
 //   seguridad para formularios
   axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
