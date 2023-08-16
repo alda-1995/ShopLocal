@@ -1999,6 +1999,10 @@ h4, h5, .h4 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 }
+.py-40 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -2049,6 +2053,9 @@ h4, h5, .h4 {
 }
 .pb-2 {
   padding-bottom: 0.5rem;
+}
+.pl-\[0\.15rem\] {
+  padding-left: 0.15rem;
 }
 .text-left {
   text-align: left;
@@ -2305,6 +2312,10 @@ h4, h5, .h4 {
 .text-secondary {
   --tw-text-opacity: 1;
   color: rgb(2 108 128 / var(--tw-text-opacity));
+}
+.text-neutral {
+  --tw-text-opacity: 1;
+  color: rgb(17 17 17 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;

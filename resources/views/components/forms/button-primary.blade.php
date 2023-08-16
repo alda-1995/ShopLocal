@@ -1,7 +1,6 @@
 <button
   type="{{ $type }}"
   data-te-ripple-init
-  data-te-ripple-color="light"
   class="inline-block rounded bg-accent px-6 pb-2 pt-2.5 
   text-xs font-medium uppercase leading-normal 
   text-white shadow-[0_4px_9px_-4px_#3b71ca]

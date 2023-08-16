@@ -1,73 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+    <x-layout.layout-form>
+        <form method="POST" action="{{ route('login') }}" novalidate>
+            @csrf
+            <x-forms.input label="Correo electronico" type="email" name="email" id="email" value="{{ old('email') }}"
+                required autofocus />
+            <x-forms.input type="password" name="password" label="Contraseña" value="{{ old('password') }}" required
+                autofocus />
+            {{-- autocomplete="current-password" --}}
+            <div class="mb-6 flex items-center justify-between">
+                <div class="block min-h-[1.5rem] pl-[1.5rem]">
+                    <input
+                        class="relative float-left 
+                    -ml-[1.5rem] mr-[6px] mt-[0.15rem] 
+                    h-[1.125rem] w-[1.125rem] appearance-none 
+                    rounded-[0.25rem] border-[0.125rem] 
+                    border-solid border-neutral-300 outline-none 
+                    before:pointer-events-none before:absolute 
+                    before:h-[0.875rem] before:w-[0.875rem] before:scale-0
+                     before:rounded-full before:bg-transparent before:opacity-0
+                     before:shadow-[0px_0px_0px_13px_transparent] 
+                     before:content-[''] checked:border-primary
+                      checked:bg-primary checked:before:opacity-[0.16]
+                       checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem]
+                        checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem]
+                         checked:after:rotate-45 checked:after:border-[0.125rem]
+                          checked:after:border-l-0 checked:after:border-t-0
+                           checked:after:border-solid checked:after:border-white
+                            checked:after:bg-transparent checked:after:content-['']
+                             hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent"
+                        type="checkbox" value="" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} />
+                    <label class="inline-block pl-[0.15rem] hover:cursor-pointer" for="remember">
+                        Recuerdame
+                    </label>
                 </div>
+                @if (Route::has('password.request'))
+                    <a href="{{ route('password.request') }}"
+                        class="text-neutral transition duration-150 ease-in-out 
+                  hover:text-primary-600 focus:text-primary-600 
+                  active:text-primary-700">Olvidaste
+                        tu contraseña?</a>
+                @endif
             </div>
-        </div>
-    </div>
-</div>
+            <x-forms.button-primary type="submit" label="Ingresar" />
+        </form>
+    </x-layout.layout-form>
 @endsection
