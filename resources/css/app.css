@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .bg-yellow-opacity{
+        background-color: rgba(255, 205, 87, 0.5);
+    }
+    .bg-banner{
+        background: linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 64%,rgb(193,15,255) 98%);
+    }
+}
