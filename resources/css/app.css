@@ -9,4 +9,16 @@
     .bg-banner{
         background: linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 64%,rgb(193,15,255) 98%);
     }
+    .btn{
+        @apply btn-font inline-flex text-center justify-center items-center h-[44px]
+        rounded px-7 md:px-8 py-2 transition duration-150 ease-in-out
+        hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+        focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)];
+    }
+    .btn-primary{
+        @apply bg-primary text-white;
+    }
+    .btn-secondary{
+        @apply bg-accent text-white;
+    }
 }

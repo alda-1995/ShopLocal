@@ -10,6 +10,9 @@
                     <x-cards.card-servicio title="Tienda la margarita" url="/" img="img/food3.jpg" />
                     <x-cards.card-servicio title="Tienda la margarita" url="/" img="img/food1.jpg" />
                 </div>
+                <div class="flex justify-center mt-8">
+                    <x-buttons.btn-secondary label="Conocer más" />
+                </div>
             </div>
             <div class="flex flex-col">
                 <h3 class="text-neutral mb-4 md:mb-6">Servicios</h3>
@@ -18,6 +21,9 @@
                     <x-cards.card-servicio title="Medico" url="/" img="img/food2.jpg" />
                     <x-cards.card-servicio title="Reparaciones Domésticas" url="/" img="img/food3.jpg" />
                     <x-cards.card-servicio title="Tienda la margarita" url="/" img="img/food1.jpg" />
+                </div>
+                <div class="flex justify-center mt-8">
+                    <x-buttons.btn-secondary label="Conocer más" />
                 </div>
             </div>
         </div>

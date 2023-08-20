@@ -1,9 +1,9 @@
 <!-- Navbar -->
-<nav id="main-navbar" class="fixed left-0 right-0 top-0 flex w-full flex-nowrap h-[80px] items-center justify-between"
+<nav id="main-navbar" class="fixed left-0 right-0 top-0 z-[9999] flex w-full flex-nowrap h-[80px] items-center justify-between"
     data-te-navbar-ref>
     <div class="container">
         <div class="w-full {{ auth()->check() ? 'xl:pl-64' : '' }}">
-            <div class="flex w-full flex-wrap justify-between px-4 lg:px-12">
+            <div class="flex w-full flex-wrap justify-between">
                 <a class="inline-flex items-center text-white h4" href="{{ url('/') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-8 h-8">
@@ -14,9 +14,10 @@
                 </a>
                 <!-- Toggler -->
                 <button data-te-sidenav-toggle-ref data-te-target="#sidenav-1"
-                    class="block border-0 bg-transparent px-2.5 text-gray-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 xl:hidden"
+                    class="block border-0 bg-transparent px-2.5 text-white hover:no-underline
+                    hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 xl:hidden"
                     aria-controls="#sidenav-1" aria-haspopup="true">
-                    <span class="block [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-blue-700">
+                    <span class="block [&>svg]:h-10 [&>svg]:w-10 [&>svg]:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
                             <path fill-rule="evenodd"
                                 d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
@@ -25,14 +26,18 @@
                     </span>
                 </button>
                 <!-- Right links -->
-                <ul class="relative flex items-center">
+                <ul class="hidden xl:flex relative items-center">
                     @guest
                         <div class="flex gap-6">
                             @if (Route::has('login'))
-                                <x-forms.link-primary label="Iniciar sesión" link="{{ route('login') }}" />
+                                <a link="{{ route('login') }}" class="inline-block">
+                                    <x-buttons.btn-primary label="Iniciar sesión" />
+                                </a>
                             @endif
                             @if (Route::has('register'))
-                                <x-forms.link-secondary label="Registro" link="{{ route('register') }}" />
+                                <a link="{{ route('register') }}" class="inline-block">
+                                    <x-buttons.btn-secondary label="Registrarme" />
+                                </a>
                             @endif
                         </div>
                     @else
