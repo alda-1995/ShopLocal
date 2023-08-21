@@ -4,7 +4,7 @@
     <div class="container">
         <div class="w-full {{ auth()->check() ? 'xl:pl-64' : '' }}">
             <div class="flex w-full flex-wrap justify-between">
-                <a class="inline-flex items-center text-white h4" href="{{ url('/') }}">
+                <a class="@if(request()->is('login') || request()->is('register')) text-primary @else text-white @endif inline-flex items-center h4" href="{{ url('/') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -30,14 +30,10 @@
                     @guest
                         <div class="flex gap-6">
                             @if (Route::has('login'))
-                                <a link="{{ route('login') }}" class="inline-block">
-                                    <x-buttons.btn-primary label="Iniciar sesión" />
-                                </a>
+                                <x-buttons.link-primary url="login" label="Iniciar sesión" />
                             @endif
                             @if (Route::has('register'))
-                                <a link="{{ route('register') }}" class="inline-block">
-                                    <x-buttons.btn-secondary label="Registrarme" />
-                                </a>
+                                <x-buttons.link-secondary url="register" label="Registrarme" />
                             @endif
                         </div>
                     @else
