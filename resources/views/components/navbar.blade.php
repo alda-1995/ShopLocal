@@ -4,7 +4,10 @@
     <div class="container">
         <div class="w-full {{ auth()->check() ? 'xl:pl-64' : '' }}">
             <div class="flex w-full flex-wrap justify-between">
-                <a class="@if(request()->is('login') || request()->is('register')) text-primary @else text-white @endif inline-flex items-center h4" href="{{ url('/') }}">
+                <a class="@if(request()->is('login') || 
+                request()->is('register') || 
+                request()->is('password/reset')) text-primary 
+                @else text-white @endif inline-flex items-center h4" href="{{ url('/') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round"

@@ -4054,6 +4054,10 @@ h4, h5, .h4 {
     margin-bottom: 1.5rem;
   }
 
+  .md\:flex {
+    display: flex;
+  }
+
   .md\:h-\[300px\] {
     height: 300px;
   }
@@ -4092,6 +4096,14 @@ h4, h5, .h4 {
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:justify-center {
+    justify-content: center;
   }
 
   .md\:gap-10 {
