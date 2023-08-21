@@ -4112,6 +4112,11 @@ h4, h5, .h4 {
     padding-bottom: 8rem;
   }
 
+  .md\:py-28 {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
   .md\:pb-20 {
     padding-bottom: 5rem;
   }
