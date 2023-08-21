@@ -1,6 +1,11 @@
-@props(['img', 'title' => '', 'url' => ''])
+@props(['img', 'title' => '', 'url' => '', 'oferta' => ''])
 <a href="{{ $url }}" class="flex flex-col items-center text-center group">
     <div class="w-full h-[150px] md:h-[300px] relative">
+        @if (isset($oferta))
+            <div class="absolute bottom-0 left-0 w-full small bg-red-500 text-white p-4">
+                Descuento {{$oferta}}%
+            </div>
+        @endif
         @if (isset($img))
             <div class="bg-cover bg-center bg-no-repeat w-full h-full"
                 style="background-image: url('{{ $img }}');">

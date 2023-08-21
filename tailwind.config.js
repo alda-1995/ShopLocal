@@ -35,17 +35,17 @@ module.exports = {
       addBase({
         'h1, .h1': {
           fontFamily: 'Poppins, sans-serif',
-          fontSize: "calc(42px + (52 - 42) * ((100vw - 300px) / (2300 - 300)))",
+          fontSize: "calc(38px + (52 - 38) * ((100vw - 300px) / (2300 - 300)))",
           lineHeight: 1.2
         },
         'h2, .h2': {
           fontFamily: 'Poppins, sans-serif',
-          fontSize: "calc(28px + (32 - 28) * ((100vw - 300px) / (2300 - 300)))",
+          fontSize: "calc(28px + (36 - 28) * ((100vw - 300px) / (2300 - 300)))",
           lineHeight: 1.2
         },
         'h3, .h3': {
           fontFamily: 'Poppins, sans-serif',
-          fontSize: "calc(24px + (26 - 24) * ((100vw - 300px) / (2300 - 300)))",
+          fontSize: "calc(20px + (26 - 20) * ((100vw - 300px) / (2300 - 300)))",
           lineHeight: 1.25,
           fontWeight: 300
         },
@@ -63,9 +63,9 @@ module.exports = {
         },
         '.small': {
           fontFamily: 'Poppins, sans-serif',
-          fontSize: "calc(10px + (10 - 10) * ((100vw - 300px) / (2300 - 300)))",
+          fontSize: "calc(12px + (14 - 12) * ((100vw - 300px) / (2300 - 300)))",
           lineHeight: 1.2,
-          fontWeight: 300,
+          fontWeight: 600,
           letterSpacing: 0.5
         },
         '.btn-font': {

@@ -450,19 +450,19 @@ input[type="range"]:active::-webkit-slider-thumb {}
 
 h1, .h1 {
   font-family: Poppins, sans-serif;
-  font-size: calc(42px + (52 - 42) * ((100vw - 300px) / (2300 - 300)));
+  font-size: calc(38px + (52 - 38) * ((100vw - 300px) / (2300 - 300)));
   line-height: 1.2;
 }
 
 h2, .h2 {
   font-family: Poppins, sans-serif;
-  font-size: calc(28px + (32 - 28) * ((100vw - 300px) / (2300 - 300)));
+  font-size: calc(28px + (36 - 28) * ((100vw - 300px) / (2300 - 300)));
   line-height: 1.2;
 }
 
 h3, .h3 {
   font-family: Poppins, sans-serif;
-  font-size: calc(24px + (26 - 24) * ((100vw - 300px) / (2300 - 300)));
+  font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (2300 - 300)));
   line-height: 1.25;
   font-weight: 300;
 }
@@ -483,9 +483,9 @@ h4, h5, .h4 {
 
 .small {
   font-family: Poppins, sans-serif;
-  font-size: calc(10px + (10 - 10) * ((100vw - 300px) / (2300 - 300)));
+  font-size: calc(12px + (14 - 12) * ((100vw - 300px) / (2300 - 300)));
   line-height: 1.2;
-  font-weight: 300;
+  font-weight: 600;
   letter-spacing: 0.5px;
 }
 
@@ -944,6 +944,9 @@ h4, h5, .h4 {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
+.mb-8 {
+  margin-bottom: 2rem;
+}
 .mb-\[0\.125rem\] {
   margin-bottom: 0.125rem;
 }
@@ -1001,14 +1004,11 @@ h4, h5, .h4 {
 .mt-4 {
   margin-top: 1rem;
 }
-.mt-\[0\.15rem\] {
-  margin-top: 0.15rem;
-}
 .mt-8 {
   margin-top: 2rem;
 }
-.mb-8 {
-  margin-bottom: 2rem;
+.mt-\[0\.15rem\] {
+  margin-top: 0.15rem;
 }
 .box-border {
   box-sizing: border-box;
@@ -1602,9 +1602,6 @@ h4, h5, .h4 {
 .flex-nowrap {
   flex-wrap: nowrap;
 }
-.items-start {
-  align-items: flex-start;
-}
 .items-center {
   align-items: center;
 }
@@ -1641,9 +1638,6 @@ h4, h5, .h4 {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.self-start {
-  align-self: flex-start;
 }
 .self-center {
   align-self: center;
@@ -1894,6 +1888,10 @@ h4, h5, .h4 {
   --tw-bg-opacity: 1;
   background-color: rgb(6 0 151 / var(--tw-bg-opacity));
 }
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
 .bg-transparent {
   background-color: transparent;
 }
@@ -2039,6 +2037,10 @@ h4, h5, .h4 {
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
 }
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
 .py-16 {
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -2051,13 +2053,13 @@ h4, h5, .h4 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 }
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-}
-.py-32 {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
 }
 .py-4 {
   padding-top: 1rem;
@@ -2095,15 +2097,14 @@ h4, h5, .h4 {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
 .pb-0 {
   padding-bottom: 0px;
 }
 .pb-12 {
   padding-bottom: 3rem;
+}
+.pb-16 {
+  padding-bottom: 4rem;
 }
 .pb-\[5px\] {
   padding-bottom: 5px;
@@ -3907,12 +3908,20 @@ h4, h5, .h4 {
 
 @media (min-width: 640px) {
 
+  .sm\:max-w-md {
+    max-width: 28rem;
+  }
+
   .sm\:max-w-sm {
     max-width: 24rem;
   }
 
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:items-center {
+    align-items: center;
   }
 }
 
@@ -3936,6 +3945,10 @@ h4, h5, .h4 {
     margin-bottom: 0px;
   }
 
+  .md\:mb-10 {
+    margin-bottom: 2.5rem;
+  }
+
   .md\:mb-16 {
     margin-bottom: 4rem;
   }
@@ -3946,6 +3959,14 @@ h4, h5, .h4 {
 
   .md\:h-\[300px\] {
     height: 300px;
+  }
+
+  .md\:w-\[40\%\] {
+    width: 40%;
+  }
+
+  .md\:w-\[60\%\] {
+    width: 60%;
   }
 
   .md\:max-w-2xl {
@@ -3982,6 +4003,10 @@ h4, h5, .h4 {
     padding-bottom: 8rem;
   }
 
+  .md\:pb-20 {
+    padding-bottom: 5rem;
+  }
+
   .md\:pr-1 {
     padding-right: 0.25rem;
   }
@@ -3993,6 +4018,26 @@ h4, h5, .h4 {
 
 @media (min-width: 1024px) {
 
+  .lg\:mb-20 {
+    margin-bottom: 5rem;
+  }
+
+  .lg\:ml-8 {
+    margin-left: 2rem;
+  }
+
+  .lg\:w-\[40\%\] {
+    width: 40%;
+  }
+
+  .lg\:w-auto {
+    width: auto;
+  }
+
+  .lg\:max-w-md {
+    max-width: 28rem;
+  }
+
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -4003,6 +4048,10 @@ h4, h5, .h4 {
 
   .lg\:py-36 {
     padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+
+  .lg\:pb-36 {
     padding-bottom: 9rem;
   }
 }
