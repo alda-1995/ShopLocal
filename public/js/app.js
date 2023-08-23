@@ -2065,6 +2065,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tw_elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tw-elements */ "./node_modules/tw-elements/dist/js/tw-elements.es.min.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _datatable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./datatable */ "./resources/js/datatable.js");
 
 (0,tw_elements__WEBPACK_IMPORTED_MODULE_0__.initTE)({
   Sidenav: tw_elements__WEBPACK_IMPORTED_MODULE_0__.Sidenav,
@@ -2074,8 +2075,11 @@ __webpack_require__.r(__webpack_exports__);
   Datatable: tw_elements__WEBPACK_IMPORTED_MODULE_0__.Datatable
 });
 
-//   seguridad para formularios
+//seguridad para formularios
 (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults).headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+window.TableCreateMe = _datatable__WEBPACK_IMPORTED_MODULE_2__.TableCreateMe;
+window.Datatable = tw_elements__WEBPACK_IMPORTED_MODULE_0__.Datatable;
 var sidenav2 = document.getElementById("sidenav-1");
 var sidenavInstance2 = tw_elements__WEBPACK_IMPORTED_MODULE_0__.Sidenav.getInstance(sidenav2);
 var innerWidth2 = null;
@@ -2099,6 +2103,63 @@ if (window.innerWidth < sidenavInstance2.getBreakpoint("sm")) {
 
 // Event listeners
 window.addEventListener("resize", setMode2);
+
+/***/ }),
+
+/***/ "./resources/js/datatable.js":
+/*!***********************************!*\
+  !*** ./resources/js/datatable.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TableCreateMe: () => (/* binding */ TableCreateMe)
+/* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function TableCreateMe(columns, rows, urlData, id, msgConfirm) {
+  var setActions = function setActions() {
+    var deleteButtons = document.querySelectorAll('.btn-delete');
+    deleteButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var route = button.getAttribute('data-route');
+        var itemId = button.getAttribute('data-id');
+        if (confirm(msgConfirm)) {
+          axios["delete"]("".concat(route, "/").concat(itemId)).then(function (response) {
+            console.log(response);
+            // if (response.status == 200) {
+            //     var btnElement = document.querySelector(`[data-id='${itemId}']`);
+            //     var rowDelete = btnElement.closest("tr");
+            //     if (rowDelete) {
+            //         rowDelete.remove();
+            //     }
+            // }
+          })["catch"](function (error) {
+            console.error(error);
+          });
+        }
+      });
+    });
+  };
+  var tbcrud = document.getElementById(id);
+  tbcrud.addEventListener("render.te.datatable", setActions);
+  new Datatable(tbcrud, {
+    columns: columns,
+    rows: rows.map(function (row) {
+      return _objectSpread(_objectSpread({}, row), {}, {
+        action: "\n                        <div class=\"flex gap-4\">\n                            <a class=\"btn-edit\" \n                            href=\"".concat(urlData, "/").concat(row.id, "/edit/\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n                                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125\" />\n                                </svg>\n                            </a>\n                            <button class=\"btn-delete\" \n                            data-confirm=\"hola mundo\"\n                            data-id=\"").concat(row.id, "\" data-route=").concat(urlData, ">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n                                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0\" />\n                                </svg>\n                            </button>\n                        </div>\n                        ")
+      });
+    })
+  }, {
+    hover: true
+  });
+}
 
 /***/ }),
 

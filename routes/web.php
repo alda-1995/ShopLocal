@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\V1\Dashboard\DashboardController;
+use App\Http\Controllers\V1\Admin\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::resource('categorias', CategoriaController::class);
+});

@@ -34,7 +34,8 @@
         </main>
         <x-footer />
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     @yield('scripts')
     @stack('js_after')
 </body>
