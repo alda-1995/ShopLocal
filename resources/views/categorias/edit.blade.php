@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-layout.layout-form-crud title="Crear categoría">
-        <form method="PUT" action="/categorias" novalidate>
+    <x-layout.layout-form-crud title="Actualizar categoría">
+        <form method="POST" action="{{ route('categorias.update', $categoria->id) }}" novalidate>
             @csrf
-            <x-forms.input label="Nombre" type="text" name="nombre" id="nombre" value="{{ old('nombre') }}" required
+            @method('PUT')
+            <x-forms.input label="Nombre" type="text" name="nombre" id="nombre" value="{{ $categoria->nombre }}" required
                 autofocus />
-            <x-forms.input label="Plural" type="text" name="plural" id="plural" value="{{ old('plural') }}" required
-                autofocus />
+            <x-forms.input label="Plural" type="text" name="plural" id="plural" value="{{ $categoria->plural }}"
+                required autofocus />
             <x-buttons.btn-primary type="submit" label="Guardar" />
         </form>
     </x-layout.layout-form-crud>

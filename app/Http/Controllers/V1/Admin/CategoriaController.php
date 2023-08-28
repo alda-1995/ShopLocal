@@ -53,17 +53,39 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|string|unique:categorias|max:400',
+            'nombre' => 'required|string|max:400',
             'plural' => 'required|string|max:600',
-            'parent_id' => 'sometimes|nullable|integer|',
+            'parent_id' => 'sometimes|nullable|integer',
         ]);
         Categoria::create($request->post());
         return redirect()->route('categorias.index')->with('success', 'Se agrego correctamente la categoría.');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('categorias.edit');
+        $categoria = Categoria::findOrFail($id);
+        return view('categorias.edit', compact('categoria'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Categoria $categoria)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:400',
+            'plural' => 'required|string|max:600',
+            'parent_id' => 'sometimes|nullable|integer',
+        ]);
+    
+        $categoria->update($request->all());
+    
+        return redirect()->route('categorias.index')
+                        ->with('success','Se actualizo correctamente');
     }
 
     /**
