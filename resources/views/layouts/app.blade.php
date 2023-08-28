@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,22 +22,24 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         @auth
-        <x-sidenav />
+            <x-sidenav />
         @endauth
         <x-navbar />
-        <main>
-            <div class="{{ auth()->check() ? 'xl:pl-64' : '' }}">
+        <div class="{{ auth()->check() ? 'xl:pl-60' : '' }}">
+            <main>
                 @yield('content')
-            </div>
-        </main>
-        <x-footer />
+            </main>
+            <x-footer />
+        </div>
     </div>
     <script src="{{ mix('/js/app.js') }}"></script>
     {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     @yield('scripts')
     @stack('js_after')
 </body>
+
 </html>

@@ -1,13 +1,13 @@
 <!-- Navbar -->
-<nav id="main-navbar" class="fixed left-0 right-0 top-0 z-[9999] flex w-full flex-nowrap h-[80px] items-center justify-between"
+<nav id="main-navbar"
+    class="fixed left-0 right-0 top-0 z-[9999] flex w-full flex-nowrap h-[80px] items-center justify-between"
     data-te-navbar-ref>
     <div class="container">
         <div class="w-full {{ auth()->check() ? 'xl:pl-64' : '' }}">
             <div class="flex w-full flex-wrap justify-between">
-                <a class="@if(request()->is('login') || 
-                request()->is('register') || 
-                request()->is('password/reset')) text-primary 
-                @else text-white @endif inline-flex items-center h4" href="{{ url('/') }}">
+                <a class="@if (request()->is('login') || request()->is('register') || request()->is('password/reset')) text-primary 
+                @else text-white @endif inline-flex items-center h4"
+                    href="{{ url('/') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -40,32 +40,55 @@
                             @endif
                         </div>
                     @else
-                        <li class="relative" data-te-dropdown-ref>
-                            <a class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
-                                href="#" id="navbarDropdownMenuLink" role="button" data-te-dropdown-toggle-ref
-                                aria-expanded="false">
+                        <li class="relative group">
+                            <button
+                                class="bg-white flex items-center justify-center
+                            rounded-full h-[50px] w-[50px] shadow-lg">
                                 <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-full"
                                     style="height: 40px; width: 40px" alt="Avatar" loading="lazy" />
-                            </a>
-                            <ul class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-[10rem] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
-                                aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
-                                <li>
-                                    <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400"
-                                        href="#" data-te-dropdown-item-ref>Mi perfil</a>
-                                </li>
-                                <li>
-                                    <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400"
-                                        href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"
-                                        data-te-dropdown-item-ref>
-                                        Salir
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </a>
-                                </li>
-                            </ul>
+                            </button>
+                            <div
+                                class="absolute left-auto right-0 z-[1000] 
+                            hidden group-hover:block min-w-[10rem] pt-2">
+                                <ul
+                                    class="list-none overflow-hidden border-none 
+                                bg-clip-padding text-left bg-white w-full rounded-lg">
+                                    <li>
+                                        <a class="flex items-center w-full whitespace-nowrap bg-transparent px-4 py-[0.8rem]
+                                        transition-all duration-300
+                                        btn-font text-primary hover:bg-primary hover:text-white group/link"
+                                            href="#">
+                                            <div class="flex mr-1">
+                                                <svg class="stroke-primary w-6 h-6 transition-all duration-300 group-hover/link:stroke-white"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                </svg>
+                                            </div>
+                                            Mi perfil
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-center w-full whitespace-nowrap bg-transparent px-4 py-[0.8rem] btn-font
+                                        text-primary hover:bg-primary hover:text-white group/link"
+                                            href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                            <div class="flex mr-1">
+                                                <svg class="stroke-primary w-6 h-6 transition-all duration-300 group-hover/link:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                                                  </svg>                                                  
+                                            </div>
+                                            Salir
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="hidden">
+                                                @csrf
+                                            </form>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                     @endguest
                 </ul>

@@ -2,7 +2,7 @@
 
 @section('content')
     <x-layout.layout-form-crud title="Crear categoría">
-        <form method="POST" action="/categorias" novalidate>
+        <form method="PUT" action="/categorias" novalidate>
             @csrf
             <x-forms.input label="Nombre" type="text" name="nombre" id="nombre" value="{{ old('nombre') }}" required
                 autofocus />

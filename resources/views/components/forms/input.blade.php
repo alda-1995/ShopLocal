@@ -19,7 +19,7 @@
     </div>
     
     @error($name)
-        <span class="block text-red-400 mb-4" role="alert">
+        <span class="block text-red-400 mb-4 small" role="alert">
             <strong>{{ $message }}</strong>
         </span>
     @enderror

@@ -22,6 +22,4 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::group(['middleware' => ['role:admin']], function () {
-    Route::resource('categorias', CategoriaController::class);
-});
+Route::resource('categorias', CategoriaController::class)->middleware('role_or_permission:admin');
