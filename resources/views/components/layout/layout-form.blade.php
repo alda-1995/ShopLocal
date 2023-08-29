@@ -1,5 +1,5 @@
 @props(['urlImg' => ''])
-<div class="min-h-screen w-full py-24 md:py-28 bg-white">
+<div class="min-h-screen w-full py-24 md:py-20 bg-white">
     <div class="container">
         <div class="flex flex-wrap items-center justify-center lg:justify-between">
             <div class="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">

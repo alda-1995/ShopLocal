@@ -3,9 +3,9 @@
     <div class="py-24 md:py-28 lg:py-32 min-h-screen">
         <div class="container">
             @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
+                <x-forms.alert class="bg-success-100 text-success-700">
+                    {{ $message }}
+                </x-forms.alert>
             @endif
             <x-forms.datatable :rows="$categorias"
             msgConfirm=""

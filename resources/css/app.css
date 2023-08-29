@@ -21,4 +21,8 @@
     .btn-secondary{
         @apply bg-accent text-white;
     }
+
+    .select-me input::placeholder{
+        @apply !text-primary !opacity-100;
+    }
 }

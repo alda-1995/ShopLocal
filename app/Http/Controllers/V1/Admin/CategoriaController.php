@@ -41,7 +41,8 @@ class CategoriaController extends Controller
 
     public function create()
     {
-        return view('categorias.create');
+        $categorias = Categoria::all();
+        return view('categorias.create', compact('categorias'));
     }
 
     /**
@@ -63,8 +64,9 @@ class CategoriaController extends Controller
 
     public function edit($id)
     {
+        $categorias = Categoria::where('id', '!=', $id)->get();
         $categoria = Categoria::findOrFail($id);
-        return view('categorias.edit', compact('categoria'));
+        return view('categorias.edit', compact('categoria', 'categorias'));
     }
 
     /**

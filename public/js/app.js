@@ -2111,7 +2111,8 @@ __webpack_require__.r(__webpack_exports__);
   Sidenav: tw_elements__WEBPACK_IMPORTED_MODULE_0__.Sidenav,
   Dropdown: tw_elements__WEBPACK_IMPORTED_MODULE_0__.Dropdown,
   Ripple: tw_elements__WEBPACK_IMPORTED_MODULE_0__.Ripple,
-  Input: tw_elements__WEBPACK_IMPORTED_MODULE_0__.Input
+  Input: tw_elements__WEBPACK_IMPORTED_MODULE_0__.Input,
+  Select: tw_elements__WEBPACK_IMPORTED_MODULE_0__.Select
 });
 
 
@@ -2120,6 +2121,7 @@ __webpack_require__.r(__webpack_exports__);
 (axios__WEBPACK_IMPORTED_MODULE_2___default().defaults).headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 window.axios = (axios__WEBPACK_IMPORTED_MODULE_2___default());
 window.Swal = (sweetalert2__WEBPACK_IMPORTED_MODULE_1___default());
+window.Select = tw_elements__WEBPACK_IMPORTED_MODULE_0__.Select;
 var sidenav2 = document.getElementById("sidenav-1");
 var sidenavInstance2 = tw_elements__WEBPACK_IMPORTED_MODULE_0__.Sidenav.getInstance(sidenav2);
 document.addEventListener('DOMContentLoaded', function () {

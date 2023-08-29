@@ -3,9 +3,10 @@ import {
   Dropdown,
   Ripple,
   Input,
+  Select,
   initTE
 } from "tw-elements";
-initTE({ Sidenav, Dropdown, Ripple, Input });
+initTE({ Sidenav, Dropdown, Ripple, Input, Select });
 import Swal from 'sweetalert2'
 import axios from "axios";
 import { addConfirmDelete } from './alerts';
@@ -13,6 +14,7 @@ import { addConfirmDelete } from './alerts';
 axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 window.axios = axios;
 window.Swal = Swal;
+window.Select = Select;
 const sidenav2 = document.getElementById("sidenav-1");
 const sidenavInstance2 = Sidenav.getInstance(sidenav2);
 
