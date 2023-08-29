@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\V1\Dashboard\DashboardController;
 use App\Http\Controllers\V1\Admin\CategoriaController;
+use App\Models\User;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,51 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('categorias', CategoriaController::class)->middleware('role_or_permission:admin');
+
+Route::get('/login-facebook', function(){
+    return Socialite::driver('facebook')->redirect();
+});
+
+Route::get('/facebook-callback', function(){
+    $user = Socialite::driver('facebook')->user();
+    $userExist = User::where('external_id', $user->id)
+    ->where('external_auth', 'facebook')->first();
+    if($userExist){
+        Auth::login($userExist);
+    }else{
+        $userNew = User::create([
+            "name" => $user->name,
+            "email" => $user->email,
+            "avatar" => $user->avatar,
+            "external_id" => $user->id,
+            "external_auth" => 'facebook'
+        ]);
+        $userNew->assignRole('vendedor');
+        Auth::login($userNew);
+    }
+    return redirect('/dashboard');
+});
+
+Route::get('/login-google', function(){
+    return Socialite::driver('google')->redirect();
+});
+
+Route::get('/google-callback', function(){
+    $user = Socialite::driver('google')->user();
+    $userExist = User::where('external_id', $user->id)
+    ->where('external_auth', 'google')->first();
+    if($userExist){
+        Auth::login($userExist);
+    }else{
+        $userNew = User::create([
+            "name" => $user->name,
+            "email" => $user->email,
+            "avatar" => $user->avatar,
+            "external_id" => $user->id,
+            "external_auth" => 'google'
+        ]);
+        $userNew->assignRole('vendedor');
+        Auth::login($userNew);
+    }
+    return redirect('/dashboard');
+});
