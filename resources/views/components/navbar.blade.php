@@ -1,6 +1,8 @@
 <!-- Navbar -->
 <nav id="main-navbar"
-    class="fixed left-0 right-0 top-0 z-[9999] flex w-full flex-nowrap h-[80px] items-center justify-between"
+    class="
+    {{ auth()->check() ? 'bg-secondary' : '' }}
+    fixed left-0 right-0 top-0 z-[100] flex w-full flex-nowrap h-[80px] items-center justify-between"
     data-te-navbar-ref>
     <div class="container">
         <div class="w-full {{ auth()->check() ? 'xl:pl-64' : '' }}">
