@@ -33,9 +33,17 @@ class CategoriaController extends Controller
             [
                 'label' => 'Plural',
                 'field' => 'plural'
+            ],
+            [
+                'label' => 'Categoría principal',
+                'field' => 'parent_id'
             ]
         ];
-        $categorias = Categoria::paginate(10);
+        $categorias = Categoria::with(['categoria_padre'])
+        ->paginate(10);
+        foreach ($categorias as $categoria) {
+            $categoria->parent_id = $categoria->categoria_padre ? $categoria->categoria_padre->nombre : null;
+        }
         return view('categorias.index', compact('columns', 'categorias'));
     }
 

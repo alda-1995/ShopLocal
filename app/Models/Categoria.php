@@ -15,4 +15,12 @@ class Categoria extends Model
     ];
 
     use HasFactory;
+
+    /**
+     * obtiene la categoria padre
+     */
+    public function categoria_padre()
+    {
+        return $this->belongsTo(Categoria::class, 'parent_id');
+    }
 }
