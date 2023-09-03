@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTiendasTable extends Migration
+class CreatePerfilsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateTiendasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tiendas', function (Blueprint $table) {
+        Schema::create('perfils', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 400);
+            $table->string('nombre_local', 400)->nullable();
+            $table->mediumText('descripcion', 1200)->nullable();
+            $table->string('tipo', 500);
             $table->string('estado', 500);
             $table->string('municio', 500);
             $table->string('localidad', 500);
@@ -42,6 +44,6 @@ class CreateTiendasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tiendas');
+        Schema::dropIfExists('perfils');
     }
 }

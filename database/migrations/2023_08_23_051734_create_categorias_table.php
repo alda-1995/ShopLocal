@@ -17,6 +17,7 @@ class CreateCategoriasTable extends Migration
             $table->increments('id');
             $table->string('nombre', 400);
             $table->string('plural', 600);
+            $table->mediumText('descripcion', 1200)->nullable();
             $table->boolean('estatus')->default(1);
             $table->integer('parent_id')->nullable()->unsigned();
             $table->timestamps();

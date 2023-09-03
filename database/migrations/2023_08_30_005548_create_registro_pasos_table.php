@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductosTable extends Migration
+class CreateRegistroPasosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class CreateProductosTable extends Migration
      */
     public function up()
     {
-        Schema::create('productos', function (Blueprint $table) {
+        Schema::create('registro_pasos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 400);
-            $table->mediumText('descripcion', 1200)->nullable();
-            $table->decimal('precio', 10, 2);
+            $table->string('step_current');
             $table->timestamps();
 
-            $table->integer('perfil_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             //relacion a la tabla perfil
-            $table->foreign('perfil_id')
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('perfils');
+                ->on('users');
         });
     }
 
@@ -35,6 +33,6 @@ class CreateProductosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('productos');
+        Schema::dropIfExists('registro_pasos');
     }
 }

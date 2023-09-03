@@ -1937,7 +1937,7 @@ h4, h5, .h4 {
 }
 .bg-secondary {
   --tw-bg-opacity: 1;
-  background-color: rgb(193 15 255 / var(--tw-bg-opacity));
+  background-color: rgb(139 92 246 / var(--tw-bg-opacity));
 }
 .bg-success-100 {
   --tw-bg-opacity: 1;
@@ -2452,6 +2452,10 @@ h4, h5, .h4 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
+.text-secondary {
+  --tw-text-opacity: 1;
+  color: rgb(139 92 246 / var(--tw-text-opacity));
+}
 .text-success-700 {
   --tw-text-opacity: 1;
   color: rgb(14 117 55 / var(--tw-text-opacity));
@@ -2924,7 +2928,7 @@ h4, h5, .h4 {
 
 .hover\:bg-secondary:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(193 15 255 / var(--tw-bg-opacity));
+  background-color: rgb(139 92 246 / var(--tw-bg-opacity));
 }
 
 .hover\:fill-\[\#8b8b8b\]:hover {

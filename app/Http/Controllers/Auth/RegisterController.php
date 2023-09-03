@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\RegistroPaso;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -70,6 +71,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
         $userCreate->assignRole('vendedor');
+
+        RegistroPaso::create([
+            "step_current" => "one_step",
+            "user_id" => $userCreate->id
+        ]);
+        
         return $userCreate;
     }
 }

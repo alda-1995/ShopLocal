@@ -1,4 +1,9 @@
-<div class="flex-col">
+<div class="flex flex-col">
+    @if ($infoRequired)
+    <div class="flex justify-end">
+        <p class="small mb-2 text-gray-500 text-[12px]">{{ $required ? '(Requerido)' : '(Opcional)' }}</p>
+    </div>
+    @endif
     <div class="relative btn-font {{ $errors->has($name) ? 'mb-2' : 'mb-6' }}" data-te-input-wrapper-init>
         <input type="{{ $type }}" id="{{ $name }}"
             class="

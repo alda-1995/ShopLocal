@@ -4,7 +4,7 @@ namespace App\View\Components\Forms;
 
 use Illuminate\View\Component;
 
-class Input extends Component
+class TextArea extends Component
 {
     public $label;
     public $type;
@@ -43,6 +43,6 @@ class Input extends Component
      */
     public function render()
     {
-        return view('components.forms.input');
+        return view('components.forms.text-area');
     }
 }
