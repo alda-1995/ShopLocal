@@ -12,6 +12,7 @@ class Perfil extends Model
     protected $fillable = [
         'nombre_tienda',
         'descripcion',
+        'tipo',
         'estado',
         'municio',
         'localidad',

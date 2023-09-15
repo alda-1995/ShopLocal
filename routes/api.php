@@ -2,8 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\V1\Admin\CategoriaController;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,5 +16,3 @@ use App\Http\Controllers\V1\Admin\CategoriaController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::delete('categorias/{id}', [CategoriaController::class, 'destroy'])->middleware('role_or_permission:admin');

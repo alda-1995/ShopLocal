@@ -562,6 +562,11 @@ h4, h5, .h4 {
   opacity: 1 !important;
 }
 
+    .card-img-radio input[type="radio"]:checked + .container-radio {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity));
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1204,6 +1209,9 @@ h4, h5, .h4 {
 .h-screen {
   height: 100vh;
 }
+.h-\[500px\] {
+  height: 500px;
+}
 .max-h-\[calc\(100\%-64px\)\] {
   max-height: calc(100% - 64px);
 }
@@ -1817,6 +1825,9 @@ h4, h5, .h4 {
 .border-\[14px\] {
   border-width: 14px;
 }
+.border-\[3px\] {
+  border-width: 3px;
+}
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1991,6 +2002,10 @@ h4, h5, .h4 {
 }
 .stroke-primary {
   stroke: #060097;
+}
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .\!p-0 {
   padding: 0px !important;
@@ -4039,6 +4054,10 @@ h4, h5, .h4 {
     display: flex;
   }
 
+  .md\:h-\[150px\] {
+    height: 150px;
+  }
+
   .md\:h-\[300px\] {
     height: 300px;
   }
@@ -4097,6 +4116,10 @@ h4, h5, .h4 {
 
   .md\:gap-10 {
     gap: 2.5rem;
+  }
+
+  .md\:p-4 {
+    padding: 1rem;
   }
 
   .md\:p-8 {

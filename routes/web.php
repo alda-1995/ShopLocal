@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\V1\Dashboard\DashboardController;
 use App\Http\Controllers\V1\Admin\CategoriaController;
+use App\Http\Controllers\V1\Perfil\PerfilController;
 use App\Models\User;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -25,6 +26,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('categorias', CategoriaController::class)->middleware('role_or_permission:admin');
+
+Route::prefix('perfil')->group(function () {
+    Route::post("created_one_step", [PerfilController::class, 'register_one_step'])->middleware('role_or_permission:vendedor')->name('created_one_step');
+});
 
 Route::get('/login-facebook', function(){
     return Socialite::driver('facebook')->redirect();

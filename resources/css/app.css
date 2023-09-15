@@ -25,4 +25,8 @@
     .select-me input::placeholder{
         @apply !text-primary !opacity-100;
     }
+
+    .card-img-radio input[type="radio"]:checked + .container-radio {
+        @apply border-blue-500;
+    }
 }

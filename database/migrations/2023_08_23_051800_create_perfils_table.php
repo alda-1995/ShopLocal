@@ -18,9 +18,9 @@ class CreatePerfilsTable extends Migration
             $table->string('nombre_local', 400)->nullable();
             $table->mediumText('descripcion', 1200)->nullable();
             $table->string('tipo', 500);
-            $table->string('estado', 500);
-            $table->string('municio', 500);
-            $table->string('localidad', 500);
+            $table->string('estado', 500)->nullable();
+            $table->string('municio', 500)->nullable();
+            $table->string('localidad', 500)->nullable();
             $table->timestamps();
 
             $table->integer('user_id')->nullable()->unsigned();
