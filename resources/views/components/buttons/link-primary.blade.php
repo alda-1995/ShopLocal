@@ -1,2 +1,3 @@
-@props(['url' => '', 'label' => ''])
-<a href="{{ route($url) }}" class="btn btn-primary">{{ $label }}</a>
+@props(['url' => '', 'label' => '', 'btnClass' => 'btn-primary'])
+
+<a href="{{ route($url) }}" class="btn {{ $btnClass }}">{{ $label }}</a>

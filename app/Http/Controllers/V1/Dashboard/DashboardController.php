@@ -33,7 +33,7 @@ class DashboardController extends Controller
         $stepRegister = RegistroPaso::where("user_id", $usuario->id)
         ->select('step_current')
         ->first();
-        $stepCurrent = $stepRegister->step_current;
+        $stepCurrent = ($stepRegister) ? $stepRegister->step_current : "";
         return view('dashboard.index', compact('categoriasPrincipales', 'stepCurrent'));
     }
 }

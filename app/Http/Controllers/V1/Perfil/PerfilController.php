@@ -13,11 +13,21 @@ class PerfilController extends Controller
     public function register_one_step(Request $request)
     {
         $request->validate([
-            'tipo' => 'required|string',
+            'localidad' => 'required|string',
         ]);
         $usuario = Auth::user();
         RegistroPaso::where("user_id", $usuario->id)->update(['step_current' => 'two_step']);
         Perfil::create($request->post());
-        return redirect()->route('dashboard')->with('success', 'Se guardo correctamente la información');
+        return redirect()->route('perfil')->with('success', 'Se guardo correctamente la información');
+    }
+
+     /**
+     * Show the application perfil.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('perfil.index');
     }
 }

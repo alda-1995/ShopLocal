@@ -13,19 +13,21 @@ class Input extends Component
     public $required;
     public $infoRequired;
     public $autofocus;
+    public $placeholder;
     /**
      * Create a new component instance.
      *
      * @return void
      */
     public function __construct(
-        $type = 'text',
+        $type = '',
         $name = '',
         $value = null,
         $required = false,
         $autofocus = false,
         $label,
-        $infoRequired = false
+        $infoRequired = false,
+        $placeholder = ''
     ) {
         $this->type = $type;
         $this->name = $name;
@@ -34,6 +36,7 @@ class Input extends Component
         $this->autofocus = $autofocus;
         $this->label = $label;
         $this->infoRequired = $infoRequired;
+        $this->placeholder = $placeholder;
     }
 
     /**

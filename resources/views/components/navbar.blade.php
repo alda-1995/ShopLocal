@@ -1,14 +1,14 @@
 <!-- Navbar -->
 <nav id="main-navbar"
     class="
-    {{ auth()->check() ? 'bg-secondary' : '' }}
-    fixed left-0 right-0 top-0 z-[100] flex w-full flex-nowrap h-[80px] items-center justify-between"
+    {{ auth()->check() ? 'bg-primary' : '' }}
+    fixed left-0 right-0 top-0 z-[100] flex w-full flex-nowrap h-[90px] items-center justify-between"
     data-te-navbar-ref>
     <div class="container">
         <div class="w-full {{ auth()->check() ? 'xl:pl-64' : '' }}">
             <div class="flex w-full flex-wrap justify-between">
                 <a class="@if (request()->is('login') || request()->is('register') || request()->is('password/reset')) text-primary 
-                @else text-white @endif inline-flex items-center h4"
+                    @else text-white @endif inline-flex items-center h4"
                     href="{{ url('/') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-8 h-8">
@@ -17,7 +17,22 @@
                     </svg>
                     <span class="inline-block ml-4">LocalShop</span>
                 </a>
-                <!-- Toggler -->
+                <ul class="list-none flex gap-8 items-center">
+                    @guest
+                        @if (Route::has('login'))
+                            <li>
+                                <x-buttons.link-secondary url="login" label="Iniciar sesión" />
+                            </li>
+                        @endif
+                        @if (Route::has('register'))
+                            <li>
+                                <x-buttons.link-primary url="register" label="Registrarme" />
+                            </li>
+                        @endif
+                    @else
+                    @endguest
+                </ul>
+                {{-- <!-- Toggler -->
                 <button data-te-sidenav-toggle-ref data-te-target="#sidenav-1"
                     class="block border-0 bg-transparent px-2.5 text-white hover:no-underline
                     hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 xl:hidden"
@@ -93,7 +108,7 @@
                             </div>
                         </li>
                     @endguest
-                </ul>
+                </ul> --}}
             </div>
         </div>
     </div>

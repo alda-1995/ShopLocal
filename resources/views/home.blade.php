@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<x-home.banner />
-<x-home.bloque-servicios />
-<x-home.bloque-ofertas />
+<x-pages.home.banner />
+<x-pages.home.bloque-servicios />
+<x-pages.home.bloque-ofertas />
 @endsection

@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil');
 
 Route::resource('categorias', CategoriaController::class)->middleware('role_or_permission:admin');
 

@@ -5,10 +5,12 @@ module.exports = {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
-    "./node_modules/tw-elements/dist/js/**/*.js"
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-gray': 'linear-gradient(180deg,#ffffff 0%,#F2ECFF 100%,#FFFFFF 69.56261626455561%)'
+      },
       container: {
         center: true,
         padding: {
@@ -22,42 +24,44 @@ module.exports = {
       colors: {
         "primary": "#060097",
         "secondary": "#8b5cf6",
-        "accent": "#ffcd57",
-        "neutral": "#1e293b",
+        "accent": "#fdfcff",
+        "neutral": "#0d0c22",
         "base-100": "#67768e",
+        "base-200": "#5e6067",
+        "white": "#ffffff"
       },
     },
   },
-  darkMode: "class",
   plugins: [
-    require("tw-elements/dist/plugin.cjs"),
     plugin(function ({ addBase }) {
       addBase({
         'h1, .h1': {
           fontFamily: 'Poppins, sans-serif',
-          fontSize: "calc(38px + (52 - 38) * ((100vw - 300px) / (2300 - 300)))",
-          lineHeight: 1.2
+          fontSize: "calc(38px + (64 - 38) * ((100vw - 300px) / (2300 - 300)))",
+          lineHeight: 1.2,
+          fontWeight: 600,
         },
         'h2, .h2': {
           fontFamily: 'Poppins, sans-serif',
-          fontSize: "calc(28px + (36 - 28) * ((100vw - 300px) / (2300 - 300)))",
-          lineHeight: 1.2
+          fontSize: "calc(28px + (40 - 28) * ((100vw - 300px) / (2300 - 300)))",
+          lineHeight: 1.2,
+          fontWeight: 600
         },
         'h3, .h3': {
           fontFamily: 'Poppins, sans-serif',
           fontSize: "calc(20px + (26 - 20) * ((100vw - 300px) / (2300 - 300)))",
           lineHeight: 1.25,
-          fontWeight: 300
+          fontWeight: 500
         },
         'h4, h5, .h4': {
           fontFamily: 'Poppins, sans-serif',
-          fontSize: "calc(16px + (20 - 16) * ((100vw - 300px) / (2300 - 300)))",
+          fontSize: "calc(16px + (18 - 16) * ((100vw - 300px) / (2300 - 300)))",
           lineHeight: 1.2
         },
         '.parrafo': {
           fontFamily: 'Poppins, sans-serif',
           fontSize: "calc(15px + (16 - 15) * ((100vw - 300px) / (2300 - 300)))",
-          lineHeight: 1.2,
+          lineHeight: 1.4,
           fontWeight: 300,
           letterSpacing: 0.32
         },
@@ -72,6 +76,7 @@ module.exports = {
           fontFamily: 'Poppins, sans-serif',
           fontSize: "calc(13px + (16 - 13) * ((100vw - 300px) / (2300 - 300)))",
           lineHeight: 1.2,
+          fontWeight: 600
         },
       })
     })

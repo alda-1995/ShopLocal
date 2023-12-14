@@ -5,6 +5,6 @@
         <div class="mb-4 h-[100px] md:h-[150px]">
             <img src="{{ $img }}" alt="img" class="max-h-full object-contain">
         </div>
-        <h4 class="text-primary">{{ $title }}</h4>
+        <h4 class="text-primary btn-font">{{ $title }}</h4>
     </div>
 </label>

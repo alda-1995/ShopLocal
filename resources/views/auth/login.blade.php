@@ -49,8 +49,8 @@
                 </p>
             </div>
             <x-forms.input label="Correo electronico" type="email" name="email" id="email"
-                value="{{ old('email') }}" required autofocus />
-            <x-forms.input type="password" name="password" label="Contraseña" value="{{ old('password') }}" required
+                value="{{ old('email') }}" required autofocus placeholder="correo@ejemplo.com" />
+            <x-forms.input type="password" name="password" placeholder="Escribe una contraseña con al menos 8 caracteres" label="Contraseña" value="{{ old('password') }}" required
                 autofocus />
 
             <div class="mb-6 flex items-center justify-between">
@@ -63,7 +63,7 @@
                     </label>
                 </div>
                 @if (Route::has('password.request'))
-                    <x-buttons.link-inline url="password.request" label="¿Olvidaste tu contraseña?" />
+                    <x-buttons.link-secondary url="password.request" label="¿Olvidaste tu contraseña?" />
                 @endif
             </div>
             <x-buttons.btn-primary type="submit" label="Ingresar" />
