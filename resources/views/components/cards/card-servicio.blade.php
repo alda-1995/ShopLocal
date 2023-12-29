@@ -6,7 +6,7 @@
                 Descuento {{$oferta}}%
             </div>
         @endif
-        @if (isset($img))
+        @if ($img)
             <img src="{{ $img }}" class="rounded-xl h-full w-full object-cover" alt="">
         @else
             <div class="bg-primary h-full w-full"></div>

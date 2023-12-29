@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\V1\Dashboard\DashboardController;
 use App\Http\Controllers\V1\Admin\CategoriaController;
 use App\Http\Controllers\V1\Perfil\PerfilController;
+use App\Http\Controllers\V1\Post\ServicioController;
 use App\Models\User;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -25,24 +26,23 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil');
-
-Route::resource('categorias', CategoriaController::class)->middleware('role_or_permission:admin');
-
-Route::prefix('perfil')->group(function () {
-    Route::post("created_one_step", [PerfilController::class, 'register_one_step'])->middleware('role_or_permission:vendedor')->name('created_one_step');
+Route::prefix('servicios')->group(function () {
+    Route::get('/', [ServicioController::class, 'index'])->name('servicios');
 });
-
-Route::get('/login-facebook', function(){
+Route::resource('categorias', CategoriaController::class)->middleware('role_or_permission:admin');
+// Route::prefix('perfil')->group(function () {
+//     Route::post("created_one_step", [PerfilController::class, 'register_one_step'])->middleware('role_or_permission:vendedor')->name('created_one_step');
+// });
+Route::get('/login-facebook', function () {
     return Socialite::driver('facebook')->redirect();
 });
-
-Route::get('/facebook-callback', function(){
+Route::get('/facebook-callback', function () {
     $user = Socialite::driver('facebook')->user();
     $userExist = User::where('external_id', $user->id)
-    ->where('external_auth', 'facebook')->first();
-    if($userExist){
+        ->where('external_auth', 'facebook')->first();
+    if ($userExist) {
         Auth::login($userExist);
-    }else{
+    } else {
         $userNew = User::create([
             "name" => $user->name,
             "email" => $user->email,
@@ -55,18 +55,16 @@ Route::get('/facebook-callback', function(){
     }
     return redirect('/dashboard');
 });
-
-Route::get('/login-google', function(){
+Route::get('/login-google', function () {
     return Socialite::driver('google')->redirect();
 });
-
-Route::get('/google-callback', function(){
+Route::get('/google-callback', function () {
     $user = Socialite::driver('google')->user();
     $userExist = User::where('external_id', $user->id)
-    ->where('external_auth', 'google')->first();
-    if($userExist){
+        ->where('external_auth', 'google')->first();
+    if ($userExist) {
         Auth::login($userExist);
-    }else{
+    } else {
         $userNew = User::create([
             "name" => $user->name,
             "email" => $user->email,

@@ -9,7 +9,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-gray': 'linear-gradient(180deg,#ffffff 0%,#F2ECFF 100%,#FFFFFF 69.56261626455561%)'
+        'gradient-gray': 'linear-gradient(180deg,#ffffff 0%,#F2ECFF 100%,#FFFFFF 69.56261626455561%)',
+        'gradient-food': 'linear-gradient(90deg, hsla(146, 74%, 70%, 1) 0%, hsla(126, 76%, 65%, 1) 100%)',
+        'gradient-clothe': 'linear-gradient(90deg, hsla(227, 77%, 75%, 1) 0%, hsla(186, 100%, 50%, 1) 100%)'
       },
       container: {
         center: true,
@@ -68,6 +70,13 @@ module.exports = {
         '.small': {
           fontFamily: 'Poppins, sans-serif',
           fontSize: "calc(12px + (14 - 12) * ((100vw - 300px) / (2300 - 300)))",
+          lineHeight: 1.2,
+          fontWeight: 600,
+          letterSpacing: 0.5
+        },
+        '.big-small': {
+          fontFamily: 'Poppins, sans-serif',
+          fontSize: "calc(10px + (12 - 10) * ((100vw - 300px) / (2300 - 300)))",
           lineHeight: 1.2,
           fontWeight: 600,
           letterSpacing: 0.5

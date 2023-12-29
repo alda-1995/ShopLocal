@@ -1,7 +1,7 @@
 @props(['img', 'title' => '', 'text' => '', 'url' => ''])
 <a href="{{$url}}" class="flex flex-col rounded-lg p-6">
     <div class="h-[90px] md:h-[110px] w-[90px] md:w-[110px] rounded-full mb-4">
-        @if (isset($img))
+        @if ($img)
             <div class="rounded-full bg-cover bg-center bg-no-repeat w-full h-full"
                 style="background-image: url('{{ $img }}');">
             </div>

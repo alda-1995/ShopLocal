@@ -2120,6 +2120,13 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener("DOMContentLoaded", function () {
   vanilla_masker__WEBPACK_IMPORTED_MODULE_2___default()(document.querySelectorAll(".phone-mask")).maskPattern("(999) 999-9999");
 });
+document.querySelector('[data-dropdown-toggle]').addEventListener("click", function (e) {
+  e.preventDefault();
+  var submenu = document.getElementById("dropdown-user");
+  if (submenu) {
+    submenu.classList.toggle("hidden");
+  }
+});
 
 /***/ }),
 

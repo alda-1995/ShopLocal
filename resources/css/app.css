@@ -27,4 +27,26 @@
     .card-img-radio input[type="radio"]:checked + .container-radio {
         @apply border-blue-500;
     }
+
+    .link-submenu{
+        @apply flex items-center w-full whitespace-nowrap bg-transparent 
+        px-4 py-[0.8rem] transition-all duration-300
+        btn-font text-primary hover:bg-primary hover:text-white;
+    }
+    .link-menu{
+        @apply btn-font text-neutral transition-all duration-300;
+    }
+    .btn-rounded{
+        @apply h-[60px] w-[60px] transition-colors duration-300 
+        rounded-full flex justify-center items-center;
+    }
+    .btn-rounded.outline-btn{
+        @apply border border-base-100 text-base-100 hover:bg-primary hover:text-white;
+    }
+    .btn-rounded.black-btn{
+        @apply bg-black text-white hover:bg-primary hover:text-white;
+    }
+    .row-locale{
+        @apply grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8;
+    }
 }

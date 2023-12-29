@@ -9,4 +9,4 @@
             <x-cards.card-publicar title="Productos" text="Promociona tus productos aquí como comida, artículos, ropa, electrónicos, etc." url="/" img="img/food1.jpg" />
         </div>
     </div>
-</div>
+</div>  
